@@ -1,0 +1,26 @@
+Based on the provided code analysis, here's the deployment configuration in YAML format:
+
+
+http:
+  port: 8000
+  health_check_path: /
+name: Self-Ask with Search Agent
+summary: A LangChain-based agent that uses self-ask prompting with search capabilities to answer complex questions by breaking them down into follow-up questions and intermediate answers
+environment_variables:
+  - name: OPENAI_API_KEY
+    value: <your_openai_api_key>
+    description: OpenAI API key for the language model used by the agent
+  - name: OPENAI_BASE_URL
+    value: <optional_openai_base_url>
+    description: Optional custom OpenAI API base URL (leave empty for default)
+  - name: DEFAULT_MODEL_NAME
+    value: gpt-3.5-turbo
+    description: Default OpenAI model to use for the agent (e.g., gpt-3.5-turbo, gpt-4)
+
+
+The agent exposes an HTTP server on port 8000 with the following endpoints:
+- `/` - Health check endpoint
+- `/run` - Main endpoint to run the agent with input
+- `/tools` - Endpoint to retrieve available tools
+
+The agent requires OpenAI API credentials to function and uses the self-ask-with-search approach to answer questions by generating follow-up questions and finding intermediate answers through search tools.
