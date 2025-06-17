@@ -1,0 +1,27 @@
+Based on the provided code analysis, here's the deployment configuration in YAML format:
+
+
+http:
+  port: 8000
+  health_check_path: /
+name: Self-Ask with Search Agent
+summary: A LangChain agent that performs self-ask with search, breaking down complex questions into follow-up questions and using search tools to find intermediate answers before providing a final response.
+environment_variables:
+  - name: OPENAI_API_KEY
+    value: <your_openai_api_key>
+    description: OpenAI API key for the language model used by the agent
+  - name: OPENAI_BASE_URL
+    value: <optional_openai_base_url>
+    description: Optional custom OpenAI API base URL (leave empty for default)
+  - name: DEFAULT_MODEL_NAME
+    value: gpt-3.5-turbo
+    description: Default OpenAI model to use for the agent
+  - name: SERPER_API_KEY
+    value: <your_serper_api_key>
+    description: API key for Google Serper search service (if using GoogleSerperAPIWrapper)
+  - name: SEARCHAPI_API_KEY
+    value: <your_searchapi_api_key>
+    description: API key for SearchAPI service (if using SearchApiAPIWrapper)
+  - name: SERPAPI_API_KEY
+    value: <your_serpapi_api_key>
+    description: API key for SerpAPI service (if using SerpAPIWrapper)
