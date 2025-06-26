@@ -1,0 +1,26 @@
+Based on the provided code analysis, I'll generate a deployment configuration for this self-ask-with-search agent.
+
+
+http:
+  port: 8000
+  health_check_path: /
+name: Self-Ask with Search Agent
+summary: An intelligent agent that performs self-asking questions with search capabilities, breaking down complex queries into intermediate steps and using search tools to find answers
+environment_variables:
+  - name: OPENAI_API_KEY
+    value: <your_openai_api_key>
+    description: OpenAI API key for the language model that powers the agent's reasoning
+  - name: OPENAI_BASE_URL
+    value: https://api.openai.com/v1
+    description: Base URL for OpenAI API (can be changed for custom endpoints)
+  - name: DEFAULT_MODEL_NAME
+    value: gpt-4
+    description: Default OpenAI model to use for the agent (e.g., gpt-4, gpt-3.5-turbo)
+
+
+This configuration is based on:
+1. The FastAPI server running on port 8000 (from the entry point)
+2. The health check endpoint at "/" returning status information
+3. The agent's purpose derived from the self-ask-with-search implementation
+4. Environment variables inferred from the entry point code that uses OpenAI LLM
+5. The agent operates via HTTP API endpoints (/run, /, /tools) rather than stdin
